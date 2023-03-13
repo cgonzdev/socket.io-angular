@@ -1,4 +1,18 @@
-<p>socket works!</p>
-
-<input type="text" [(ngModel)]="message">
-<button type="button" (click)="sendMessage()">Send message</button>
+<p-card class="w-full h-screen">
+  <div class="text-center">
+    <h1>Welcome to the socket.io-angular project</h1>
+    <h2>Select the room where you want to participate</h2>
+  </div>
+  <div class="grid">
+    <div *ngFor="let room of rooms" class="col-4">
+        <button
+          pButton
+          type="button"
+          (click)="selectRoom(room.name)"
+          [label]="room.name"
+          class="room-button"
+          [ngStyle]="{ 'background-color': room.color }"
+        ></button>
+    </div>
+  </div>
+</p-card>
